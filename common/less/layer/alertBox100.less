@@ -1,0 +1,164 @@
+// 弹出层的样式
+
+@import url("../reset.less");
+@import url("../color.less");
+
+
+
+// 弹出层文字介绍
+.elasticLayer {
+
+    position: fixed;
+    background-color: rgba(51, 51, 51, 0.8);
+    //display: none;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 600;
+    //border-radius: 0.08rem;
+
+    .elasticWrapper {
+        position: relative;
+        display: table;
+        //transform: translate(-50%,-50%);
+        top: 50%;
+        //left: 50%;
+        transform: translate(0, -50%);
+        -webkit-transform: translate(0, -50%);
+        background: #ffffff;
+        // width: 1760px;
+        //height: 950px;
+        //margin: auto;
+        text-align: center;
+        z-index: 105;
+        border-radius: 0.08rem;
+        //margin: 0 0.64rem;
+        margin: 0 auto;
+
+        max-width: 76%;
+        min-width: 4rem;
+        //display: table;
+
+        .elasticMid {
+            display: table-cell;
+        }
+
+
+        .elasticTitle {
+            margin-top: 0.4rem;
+            font-size: 0.28rem;
+            columns: #333333;;
+            margin-bottom: 0.6rem;
+        }
+
+        .elasticTxt {
+            padding: 0 0.4rem;
+            margin-top: 0.26rem;
+            font-size: 0.26rem;
+            color: #7d7c7d;
+            line-height: 0.4rem;
+
+            //灰色文字
+            .sTxt {
+                color:#333333;
+            }
+
+            .iconfont {
+                &.green {
+                    color: #339900;
+                }
+
+                &.red {
+                    color: #f4252d;
+                }
+            }
+        }
+
+        .elasticButtons {
+            width: 100%;
+            height: 0.8rem;
+            margin-top: 0.2rem;
+            line-height: 0.8rem;
+            font-size: 0.28rem;
+            background: #fff;
+            // border-radius: 0.08rem;
+            // border-top: 5px solid #e5e5e5;
+            border-bottom-left-radius: 0.08rem;
+            border-bottom-right-radius: 0.08rem;
+            box-sizing: content-box;
+
+            .positionRight {
+                //width: 50%;
+                color: #333333;
+                background: #fff;
+                border-bottom-right-radius: 0.08rem;
+                // border-right: 5px solid @c004;
+                //-webkit-appearance: none;
+                box-sizing: content-box;
+
+                //-webkit-appearance: button;
+
+                width: 49%;
+                height: 100%;
+                float: right;
+
+                &.disable {
+                    color: #7d7c7d;
+                }
+
+
+                width: 2.3rem;
+                height: .7rem;
+                line-height: .7rem;
+                // margin: 0 auto;
+                font-size: .32rem;
+                color: #7b5e03;
+                background-color: #f4cf5c;
+                box-shadow: inset 0 -0.05rem 0 0 
+                    #e1b220;
+                border-radius: .4rem;
+                margin-bottom: .5rem;
+                margin-top: .4rem;
+                margin-right: 0.3rem;
+
+
+
+
+            }
+
+            .positionLeft {
+                //width: 50%;
+                color: #7d7c7d;
+                background:#fff;
+                // border-right: 5px solid #e5e5e5;
+                border-bottom-left-radius: 0.08rem;
+                box-sizing: content-box;
+                //-webkit-appearance: none;
+                //-webkit-appearance: button;
+
+                width: 49%;
+                float: left;
+
+                width: 2.3rem;
+                height: .7rem;
+                line-height: .7rem;
+                // margin: 0 auto;
+                font-size: .32rem;
+                color: #7b5e03;
+                background-color: #f4cf5c;
+                box-shadow: inset 0 -0.05rem 0 0 
+                    #e1b220;
+                border-radius: .4rem;
+                margin-bottom: .5rem;
+                margin-top: .4rem;
+                margin-left: 0.3rem;
+
+
+            }
+        }
+    }
+
+}
+
+// 弹出层 end

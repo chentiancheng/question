@@ -1,0 +1,9 @@
+替换三个路径下的index.js
+
+node_modules/gulp-rev/index.js
+node_modules/rev-path/index.js
+node_modules/gulp-rev-collector/index.js
+
+
+这三个文件与版本号控制有关
+

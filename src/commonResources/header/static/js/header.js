@@ -1,0 +1,1 @@
+require('@commonJs/adaptation_750ui.js');

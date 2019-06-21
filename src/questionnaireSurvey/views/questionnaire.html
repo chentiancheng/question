@@ -1,0 +1,144 @@
+<title>问卷调查</title>
+<!-- <link src="../static/css/zepto.mtimer.css"></script> -->
+<!-- <link rel="stylesheet" href="../static/css/zepto.mtimer.less"> -->
+<section class="questionnaireBox">
+    <div class="questionnaire-title">
+        恒天财富市场活动问卷调查
+    </div>
+    <div class="questionnaire-content">
+        感谢您参与此次问卷调查，我们希望能为您提供更好、
+        更近精彩的尊享体验！
+    </div>
+    <div id="questionFrom">
+    <div class="questionOne">
+        <div>
+            <div class="question_title">1.您的姓名：<i class="require">*</i></div>
+            <div class="question_content">
+                <input class="question_input js_name" type="text" placeholder="周伯通" />
+            </div>
+        </div>
+    </div>
+    <div class="questionOne">
+        <div>
+            <div class="question_title">2.理顾姓名：<i class="require">*</i></div>
+            <div class="question_content">
+                <input class="question_input is_name" type="text" placeholder="周伯通" />
+            </div>
+        </div>
+    </div>
+    <div class="questionTwo">
+        <div>
+            <div class="question_title">3.您是否在现场：<i class="require">*</i></div>
+            <div class="question_content">
+                <input class="question_input" type="radio" name="readone" />是
+            </div>
+            <div class="question_content">
+                <input class="question_input" type="radio" name="readone" />否
+            </div>
+        </div>
+    </div>
+    <div class="questionTwo">
+        <div>
+            <div class="question_title">4.您觉得当前的市场什么产品比较适合投资？（多选）：<i class="require">*</i></div>
+            <div class="question_content">
+                <input class="question_input" type="checkbox" name="checkbox" />像银行理财一样的固收产品
+            </div>
+            <div class="question_content">
+                <input class="question_input" type="checkbox" name="checkbox" />像股票基金一样的证券产品
+            </div>
+            <div class="question_content">
+                <input class="question_input" type="checkbox" name="checkbox" />高大上的海外市场产品
+            </div>
+        </div>
+    </div>
+    <div class="questionThree">
+        <div>
+            <div class="question_title">5.请您为恒天财富打分？：<i class="require">*</i></div>
+            <div class="question_content">
+                 <div id="target-div-demo" class="target-demo"></div>
+            </div>
+        </div>
+    </div>
+    <div class="questionFour">
+        <div>
+            <div class="question_title">6.您向朋友或同事推荐我们的可能性
+                有多大？：<i class="require">*</i></div>
+                <div class="question_content">
+                    <ul class="rateList">
+                        <li>0</li>
+                        <li>1</li>
+                        <li>2</li>
+                        <li>3</li>
+                        <li>4</li>
+                        <li>5</li>
+                        <li>6</li>
+                        <li>7</li>
+                        <li>8</li>
+                        <li>9</li>
+                        <li>10</li>   
+                    </ul>
+                   <div class="question_content-title">
+                       <span>0：不可能</span>
+                       <span class="fr">10：极有可能</span>
+                   </div> 
+               </div>
+        </div>
+    </div>
+    <div class="questionFour">
+            <div>
+                <div class="question_title">7.若您对问卷有意见与建议，欢迎填
+                        写在以下输入框中：<i class="require">*</i></div>
+                    <div class="question_content">
+                       
+                   </div>
+            </div>
+    </div>
+    <div class="questionOne">
+            <div>
+                <div class="question_title">1.选择时间<i class="require">*</i></div>
+                <div class="question_content">
+                        <input class="question_input" readonly type="text" id="date-group1-2" placeholder="请选择时">
+                </div>
+                <div class="question_content">
+                    <input class="question_input" readonly type="text" id="date-group1-3" placeholder="请选择分">
+                </div>
+            </div>
+        </div>
+    <div class="questionOne">
+        <div>
+            <div class="question_title">1.您的姓名：<i class="require">*</i></div>
+            <div class="question_content">
+                    <input class="question_input" readonly type="text" id="date-group1-1" placeholder="请选择日期">
+            </div>
+        </div>
+    </div>
+    <div class="questionfive">
+            <div>
+                <div class="question_title">1.地区<i class="require">*</i></div>
+                <div class="question_content">
+                    <select class="question_input">
+                        <option value="请选择">请选择省</option>
+                    </select>
+                </div>
+                <div class="question_content">
+                    <select class="question_input">
+                            <option value="请选择">请选择市</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+</div>
+    <button class="submitBtn btn" >提交</button>
+</section>
+<script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.3.2.js"></script>
+<script src="../static/js/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+<script src="../static/js/jquery.raty.js"></script>
+<script src="../static/js/jdate.js"></script>
+<!-- <script src="../static/js/jdate.js"></script>
+<script type="text/javascript">
+  </script> -->
+<script>jQuery.noConflict()</script>
+<!-- <script src="../static/js/zepto.js"></script> -->
+<vendor>zepto, handlebars,mui</vendor>
+

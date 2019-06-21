@@ -1,0 +1,344 @@
+<!DOCTYPE html><html><head><title>wap组件、基本样式使用</title><meta charset='utf-8'><link href='https://dn-maxiang.qbox.me/res-min/themes/marxico.css' rel='stylesheet'><style></style></head><body><div id='preview-contents' class='note-content'>
+                        
+                    
+
+
+
+<h1 id="wap组件基本样式使用">wap组件、基本样式使用</h1>
+
+
+
+<h3 id="基本结构及相关样式js">基本结构及相关样式、js</h3>
+
+
+
+<h5 id="1-mui卡片视图">1. mui卡片视图</h5>
+
+<p>结构：</p>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="hljs applescript">&lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">class</span>=<span class="hljs-string">"mui-card marginTop centerWrap"</span>&gt;<br>    ……<br>&lt;/<span class="hljs-keyword">div</span>&gt;<br></code></pre>
+
+<p><code>mui-card</code>为卡片视图必需class，相关样式：白色背景，边框阴影 <br>
+<code>marginTop</code>为上边距<code>0.8rem</code>，当该卡片需要上边距时，可以添加此class <br>
+<code>centerWrap</code>为没有左边距<code>1.6rem</code>时，即内容水平居中的时的class <br>
+相关样式在<code>common/less/baseClass.less</code>中</p>
+
+
+
+<h5 id="2-表单">2.  表单</h5>
+
+<p>结构：</p>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="hljs applescript">&lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">class</span>=<span class="hljs-string">"form-wrap"</span>&gt;<br><br>    &lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">class</span>=<span class="hljs-string">"formList"</span>&gt;<br>        ……<br>    &lt;/<span class="hljs-keyword">div</span>&gt;<br><br>    &lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">class</span>=<span class="hljs-string">"formList"</span>&gt;<br>        ……<br>    &lt;/<span class="hljs-keyword">div</span>&gt;<br>&lt;/<span class="hljs-keyword">div</span>&gt;<br></code></pre>
+
+<p><code>form-wrap</code>为表单区域，每一行表单元素为<code>formList</code>，根据左右是否有icon，是否有图文验证码、短信验证码等添加对应class，表单区域样式文件：<code>common/less/mui/newFormMui.less</code>，内有相关class说明。 <br>
+每一表单元素公共结构放在<code>common/views/form</code>下，可直接使用。 <br>
+<code>js</code>相关： <br>
+1） 校验文件：<code>common/js/input.js</code>，包括表单点击、校验、发送短信验证码、语音验证码、图文验证码等功能。 <br>
+2） 每一表单元素所需校验的配置，在<code>common/js/components/form/inputCheckSetting.js</code>中，并被<code>input.js</code>引入；每种表单校验函数，在<code>common/js/components/form/inputFunc.js</code>中，并被<code>inputCheckSetting.js</code>引入，在<code>inputCheckSetting.js</code>中，同时将校验配置列表和校验函数<code>exports</code>出来 <br>
+3）<code>common/js/components/form/formAPI</code>中的文件，为一些表单所需的数据，比如省市区联动的数据、实名认证银行列表数据的获取等等，并处理成<code>mui-poppicker</code>所需格式输出，以便表单点击进行选择时使用<code>mui-poppicker</code>实现模拟手机下方滚动弹出层选择的效果 <br>
+4）短信验证码倒计时开始及结束的按钮状态变化，在<code>common/js/components/form/timeCount.js</code>中</p>
+
+
+
+<h5 id="3-有-或-向下箭头的可点击区域">3.  有&gt; 或 向下箭头的可点击区域</h5>
+
+<p>结构：</p>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="hljs javascript">&lt;ul <span class="hljs-class"><span class="hljs-keyword">class</span></span>=<span class="hljs-string">"mui-table-view"</span>&gt; <br>    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"mui-table-view-cell mui-collapse"</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"mui-navigate-right"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"javascript:;"</span>&gt;</span>可点击可点击<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span></span><br>&lt;<span class="hljs-regexp">/ul&gt;</span><br></code></pre>
+
+<p>不加<code>mui-collapse</code>，箭头向右，加了<code>mui-collapse</code>，箭头向下。 <br>
+a标签上有<code>unable</code>，表示不可点击。 <br>
+a标签上有<code>hasSelect</code>，表示已选择。 <br>
+样式文件：<code>/common/less/mui/selectMui.less</code>。</p>
+
+
+
+<h5 id="4-列表展开收起">4.  列表展开收起</h5>
+
+<p>结构：</p>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="hljs applescript">&lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">class</span>=<span class="hljs-string">"actionWrap"</span>&gt;<br>    &lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">class</span>=<span class="hljs-string">"actionList"</span>&gt;<br>        ……<br>    &lt;/<span class="hljs-keyword">div</span>&gt;<br>&lt;/<span class="hljs-keyword">div</span>&gt;<br>&lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">class</span>=<span class="hljs-string">"iconfont actionBtn beginAction"</span>&gt;<br>&lt;/<span class="hljs-keyword">div</span>&gt;<br><br>actionWrap，标识当前是折叠区域<br>actionList，标识是折叠列表的每一条，可以是任意元素，元素内也可以是任意内容，目前wap中仅有银行卡列表可展开收起。<br>actionBtn，标识是展开收起按钮，beginAction用于js中使用，防止actionBtn与其他<span class="hljs-built_in">class</span>冲突，但也可以不用<br></code></pre>
+
+<p>样式文件：<code>common/less/components/openOrClose.less</code> <br>
+js文件：<code>common/js/components/openOrClose.js</code></p>
+
+
+
+<h5 id="5-左右滑动区域">5.  左右滑动区域</h5>
+
+<p>效果见公募产品列表页、私募产品列表页等。导航有不止一个标签，左右滑动可切换当前区域。 <br>
+目前有两种方式实现： <br>
+1） 结构在页面中写死，见<code>payThemeCash.html</code>页面，<code>js</code>中监听<code>$("#slider").on("slide",function(e){})</code>方法，根据不同<code>e.detail.slideNumber</code>的值加载不同区域的数据 <br>
+2）调用js插件<code>common/js/components/tabScroll.js</code>形成页面结构，见<code>productList.html</code>页面，<code>js</code>中初始化该插件并传参，设置滑动后的回调函数，加载不同区域的数据</p>
+
+
+
+<h5 id="6-上拉加载">6.  上拉加载</h5>
+
+<p>目前有两种方法实现： <br>
+1） 基于iscroll.js的上拉加载，调用插件<code>common/js/components/slideFullPage.js</code>，回到顶部按钮也根据iscroll.js的回到顶部实现，见我的资产页面 <br>
+加载更多icon及文案：<code>common/views/upLoad.html</code> <br>
+2） 基于mui的上拉加载，见公募产品列表页，回到顶部按钮也基于mui实现 <br>
+js初始化：</p>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="hljs less"><span class="hljs-selector-tag">mui</span><span class="hljs-selector-class">.init</span>({<br>    <span class="hljs-attribute">pullRefresh</span>: {<br>        <span class="hljs-attribute">container</span>: <span class="hljs-string">''</span>, <span class="hljs-comment">//上拉加载区域</span><br>        <span class="hljs-attribute">up</span>: {<br>            <span class="hljs-attribute">contentrefresh</span>: <span class="hljs-string">'拼命加载中'</span>,<br>            <span class="hljs-attribute">contentnomore</span>:<span class="hljs-string">'没有更多了'</span>,<span class="hljs-comment">//可选，请求完毕若没有更多数据时显示的提醒内容；</span><br>            <span class="hljs-attribute">callback </span>: function(){<br>                <span class="hljs-comment">//执行ajax请求及对数据的处理               </span><br>            }<br>        }<br>    }<br>});<br><span class="hljs-comment">//触发上拉加载的callback函数</span><br><span class="hljs-selector-tag">mui</span>(<span class="hljs-string">'.contentWrapper'</span>)<span class="hljs-selector-class">.pullRefresh</span>()<span class="hljs-selector-class">.pullupLoading</span>();<br></code></pre>
+
+<p>回到顶部按钮的<code>js</code>文件：<code>common/js/components/goTopMui.js</code></p>
+
+
+
+<h5 id="7-立即绑定开户暂不绑定开户的弹层">7.  立即绑定/开户，暂不绑定/开户的弹层</h5>
+
+<p>结构：<code>common/views/accountOrBind.html</code>  <br>
+<code>js</code>：<code>common/js/components/accountOrBind.js</code> <br>
+<code>less</code>：<code>common/js/components/elasticLayerTypeThree.less</code></p>
+
+
+
+<h5 id="8-底部4个按钮的导航">8. 底部4个按钮的导航</h5>
+
+<p>结构：<code>common/views/bottomNav.html</code> <br>
+<code>js</code>：<code>common/js/components/bottomNav.js</code> <br>
+<code>less</code>：<code>common/js/components/bottomNav.less</code></p>
+
+
+
+<h5 id="9-常见黄色大按钮">9. 常见黄色大按钮</h5>
+
+<p>结构：</p>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="hljs scala"> <span class="hljs-number">1</span>）当按钮上下左右有外边距时，如表单下方的提交按钮，使用此结构：<br> &lt;div <span class="hljs-class"><span class="hljs-keyword">class</span></span>=<span class="hljs-string">"btnButton"</span>&gt;<br>      &lt;button <span class="hljs-class"><span class="hljs-keyword">type</span></span>=<span class="hljs-string">"button"</span> <span class="hljs-class"><span class="hljs-keyword">class</span></span>=<span class="hljs-string">"mui-btn"</span>&gt;&lt;/button&gt;<br> &lt;/div&gt;<br> btnButton提供外边距margin<br><br> <span class="hljs-number">2</span>）当按钮不需要外边距时，如固定在页面底部的按钮，使用此结构：<br> &lt;button <span class="hljs-class"><span class="hljs-keyword">type</span></span>=<span class="hljs-string">"button"</span> <span class="hljs-class"><span class="hljs-keyword">class</span></span>=<span class="hljs-string">"mui-btn"</span>&gt;&lt;/button&gt;<br> <span class="hljs-class"><span class="hljs-keyword">class</span><span class="hljs-title">说明：</span></span><br> 若按钮固定在底部，在 mui-btn 上添加 bottom <br> 若按钮置灰，在 mui-btn 上添加 disable<br> 若按钮上有icon，在对应页面自己的less文件中，重置该按钮 mui-btn 的 before 样式的content: ''<br></code></pre>
+
+<p>样式文件：<code>common/less/baseClass</code></p>
+
+
+
+<h4 id="10-暂无数据">10. 暂无数据</h4>
+
+<p>结构：<code>common/views/noData.html</code> <br>
+<code>less</code>：<code>common/less/components/noData.less</code></p>
+
+
+
+<h5 id="11-顶部公募私募切换按钮">11.  顶部公募私募切换按钮</h5>
+
+<p>结构： <code>common/views/privateOrPublic.html</code> <br>
+<code>less</code>：<code>common/less/components/publicOrPrivate.less</code></p>
+
+
+
+<h3 id="其他组件结构及样式">其他组件结构及样式</h3>
+
+
+
+<h5 id="1-自然人授权代理人-下拉选择登录忘记登录密码页面">1.  自然人/授权代理人   下拉选择（登录、忘记登录密码页面）</h5>
+
+<p>结构：</p>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="hljs applescript">&lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">class</span>=<span class="hljs-string">"selectWrapper idType"</span>&gt;<br>    ……<br>&lt;/<span class="hljs-keyword">div</span>&gt;<br></code></pre>
+
+<p>js：<code>common/js/components/select.js</code> <br>
+less:   <code>common/less/components/select.less</code></p>
+
+
+
+<h5 id="2-轮播图">2. 轮播图</h5>
+
+<p>基于mui轮播图实现 <br>
+<code>js</code>文件：<code>common/js/components/sliderMui.js</code></p>
+
+
+
+<h5 id="3-模仿手机底部弹出滚动列表选择">3. 模仿手机底部弹出滚动列表选择</h5>
+
+<p>基于mui实现 <br>
+<code>js</code>文件：<code>common/js/components/popPicker.js</code> <br>
+<code>less</code>：<code>common/less/components/resetMuiPop.less</code></p>
+
+
+
+<h5 id="4-监听离开当前页面并弹出弹层">4. 监听离开当前页面并弹出弹层</h5>
+
+<p><code>js</code>：<code>common/js/components/ConfirmAwayNowPage.js</code></p>
+
+
+
+<h5 id="5-弹出层">5. 弹出层</h5>
+
+<p>1） 第一种，白色背景，有两个按钮 <br>
+<code>js</code>：<code>common/js/components/elasticLayer.js</code> <br>
+<code>less</code>：<code>common/js/components/alertBox.less</code>，为啥叫这个，历史原因。。。 <br>
+2）第二种，帮助、知道了 <br>
+<code>js</code>：<code>common/js/components/elasticLayerTwo.js</code> <br>
+<code>less</code>：<code>common/js/components/elasticLayerTypeTwo.less</code> <br>
+3）第三种，立即开户/暂不开户  立即绑定/暂不绑定 <br>
+4）第四种，交易密码弹出层 <br>
+结构：<code>common/views/webPassword.html</code> <br>
+<code>less</code>：<code>common/js/components/elasticLayerTypeTwo.less</code> <br>
+此弹层上的输入框不使用<code>input.js</code>做校验</p>
+
+
+
+<h5 id="6-获取日期">6. 获取日期</h5>
+
+<p><code>js</code>：<code>common/js/components/getDate.js</code> <br>
+目前没有文件使用</p>
+
+
+
+<h5 id="7-退出登录按钮点击">7. 退出登录按钮点击</h5>
+
+<p><code>js</code>：<code>common/js/components/quiteBtn.js</code></p>
+
+
+
+<h5 id="8-设置客服电话">8. 设置客服电话</h5>
+
+<p>由于整个项目多处使用客服电话，因此将客服电话作为项目统一的配置，放在<code>config.js</code>中，需调用以下<code>js</code>文件进行设置 <br>
+<code>js</code>：<code>common/js/components/setTelHref.js</code></p>
+
+
+
+<h5 id="9-取得url地址栏上的参数值">9. 取得url地址栏上的参数值</h5>
+
+<p><code>js</code>：<code>common/js/components/splitUrl.js</code></p>
+
+
+
+<h5 id="10-黑色提示条">10. 黑色提示条</h5>
+
+<p><code>js</code>：<code>common/js/components/tipAction.js</code> <br>
+在js文件中，将提示条结构放入html中，并添加显示后2s消失及调用回调函数的逻辑 <br>
+<code>less</code>：<code>common/less/components/againEnter.less</code></p>
+
+
+
+<h5 id="11-正则表达式集合添加千分位判断变量是否为空等函数">11. 正则表达式集合，添加千分位，判断变量是否为空等函数</h5>
+
+<p><code>js</code>：<code>common/js/components/utils.js</code></p>
+
+
+
+<h5 id="12-发送ajax请求">12. 发送ajax请求</h5>
+
+<p><code>js</code>：<code>common/js/ajaxLoading.js</code> <br>
+发送ajax请求，并具有待页面初始化所有ajax请求完毕后隐藏loading遮罩，判断登录状态、风险测评状态等功能</p>
+
+
+
+<h5 id="13-iconfont样式">13. iconfont样式</h5>
+
+<p><code>less</code>：<code>common/less/components/iconfont.less</code> <br>
+在<code>baseClass.less</code>中引用</p>
+
+
+
+<h5 id="14-公募产品列表私募产品列表公用的样式">14. 公募产品列表/私募产品列表公用的样式</h5>
+
+<p><code>less</code>：<code>common/less/components/productList.less</code></p>
+
+<h3 id="已有的公用html结构">已有的公用HTML结构</h3>
+
+
+
+<h5 id="按钮-commonviewsbutton">按钮 ( common/views/button/ )</h5>
+
+<ol><li rel="1">页面底部的提交按钮</li>
+<li rel="2">页面底部立即购买按钮</li>
+<li rel="3">关闭按钮</li>
+<li rel="4">下一步按钮（有左右边距）</li>
+<li rel="5">退出登陆按钮（有左右边距）</li>
+<li rel="6">提交按钮（有左右边距）</li>
+<li rel="7">确定按钮（有左右边距）</li>
+</ol>
+
+<h5 id="表单-commonviewsform">表单( common/views/form/ )</h5>
+
+<ol><li rel="1">地区：  <br>
+发卡银行  开户省市的下拉</li>
+<li rel="2">银行： <br>
+1）银行卡号 <br>
+2）发卡银行列表 <br>
+3）开户支行 <br>
+4）支行搜索输入框</li>
+<li rel="3">验证码： <br>
+1）短信验证码 <br>
+2）图文验证码 <br>
+3）收不到验证码？（语音）</li>
+<li rel="4">交易密码 <br>
+1）设置网站交易密码（非新交易密码） <br>
+2）网站新交易密码 <br>
+3）网站原交易密码 <br>
+4）确认网站交易密码 <br>
+5）确认网站新交易密码</li>
+<li rel="5">证件 <br>
+1）证件号 <br>
+2）实名认证–证件类型 选择</li>
+<li rel="6">登录密码 <br>
+1）新登录密码 <br>
+2）原登录密码 <br>
+3）确认新登录密码</li>
+<li rel="7">金额 <br>
+1） 起投金额</li>
+<li rel="8">姓名 <br>
+1）持卡人姓名 <br>
+2）姓名</li>
+<li rel="9">手机号码 <br>
+1）新联系人手机号码 <br>
+2）银行预留手机号码</li>
+</ol>
+
+<h5 id="加载中loading">加载中loading</h5>
+
+<ol><li rel="1">表单若一开始有接口请求： <br>
+<code>load.html</code></li>
+<li rel="2">表单点击某个按钮请求列表数据时的接口请求： <br>
+<code>listLoading.html</code></li>
+</ol>
+
+<h5 id="立即开户暂不开户立即绑定暂不绑定弹层">立即开户/暂不开户、立即绑定/暂不绑定弹层</h5>
+
+<p><code>accountOrBind.html</code></p>
+
+<h5 id="底部导航">底部导航</h5>
+
+<p><code>bottomNav.html</code></p>
+
+<h5 id="mui-返回顶部">mui 返回顶部</h5>
+
+<p><code>goTop.html</code></p>
+
+<h5 id="暂无数据">暂无数据</h5>
+
+<p><code>noData.html</code></p>
+
+<h5 id="展开收起结构的展开收起按钮">展开收起结构的展开/收起按钮</h5>
+
+<p><code>openOrClose.html</code></p>
+
+<h5 id="公募私募按钮">公募/私募按钮</h5>
+
+<p><code>privateOrPublic.html</code></p>
+
+<h5 id="iscroll上拉加载更多的结构">iscroll上拉加载更多的结构</h5>
+
+<p><code>upLoad.html</code></p>
+
+<h5 id="网站交易密码的弹层">网站交易密码的弹层</h5>
+
+<p><code>webPassword.html</code></p></div></body></html>
